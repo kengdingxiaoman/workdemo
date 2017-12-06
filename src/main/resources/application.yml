@@ -1,0 +1,44 @@
+server:
+  port: ${PORT:8090}
+  context-path: ${CONTEXTPATH:/workdemo}
+
+logging:
+  file: ${LOGGING_FILE:orca-workdemo.log}
+
+spring:
+  profiles:
+    active: ${PROFILE:develop}
+
+  http:
+    encoding:
+      force: true
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+    url: ${MYSQL_URL:jdbc:log4jdbc:mysql://127.0.0.1:3306/orca?useUnicode=true&characterEncoding=utf8}
+    username: ${MYSQL_USER:orcauser}
+    password: ${MYSQL_PASS:orcauser}
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 5
+      connection-test-query: SELECT 1
+#    o2o:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: ${MYSQL_URL:jdbc:log4jdbc:mysql://127.0.0.1:3306/duck?useUnicode=true&characterEncoding=utf8}
+#      username: ${MYSQL_USER:duckuser}
+#      password: ${MYSQL_PASS:duckuser}
+#      hikari:
+#        connection-timeout: 30000
+#        idle-timeout: 600000
+#        max-lifetime: 1800000
+#        maximum-pool-size: 5
+#        connection-test-query: SELECT 1
+
+  jpa:
+    show-sql: false
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
