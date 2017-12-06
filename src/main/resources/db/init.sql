@@ -7,6 +7,6 @@ CREATE TABLE `book` (
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+)
 
 insert into book (book_id, book_name, avail_num, author, publish_time) values(1, '三国演义', 120, '罗贯中', '1967-12-06');
