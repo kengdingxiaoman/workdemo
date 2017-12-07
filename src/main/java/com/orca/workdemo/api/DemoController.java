@@ -2,6 +2,8 @@ package com.orca.workdemo.api;
 
 import com.orca.workdemo.jpa.entity.BookEntity;
 import com.orca.workdemo.jpa.repository.BookRepository;
+import com.orca.workdemo.user.jpa.entity.UserEntity;
+import com.orca.workdemo.user.jpa.repository.UserRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,6 +33,9 @@ public class DemoController{
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @ApiOperation("查询图书")
     @GetMapping("/queryBooks")
     public ResponseEntity<Void> queryBooks() {
@@ -42,6 +47,16 @@ public class DemoController{
 
         for(BookEntity bookEntity : bookEntities) {
             logger.info(ToStringBuilder.reflectionToString(bookEntity, ToStringStyle.SHORT_PREFIX_STYLE));
+        }
+
+        List<UserEntity> userEntities = userRepository.findAll();
+
+        if(CollectionUtils.isEmpty(userEntities)) {
+            return ResponseEntity.ok().build();
+        }
+
+        for(UserEntity userEntity : userEntities) {
+            logger.info(ToStringBuilder.reflectionToString(userEntity, ToStringStyle.SHORT_PREFIX_STYLE));
         }
 
         return ResponseEntity.ok().build();
