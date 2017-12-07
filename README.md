@@ -20,3 +20,6 @@ DB：数据库初始化语句用的是mysql，也可以根据自己的需要换�
       username: ${JDBC_USER:orcauser}
       password: ${JDBC_PASSWORD:orcauser}
 
+# Changelog
+
+## 2017.12.7 增加配置多数据源
