@@ -4,13 +4,15 @@
 
 ## 用到的技术
 
-spring-boot：作为基础框架进行搭建
+Spring Boot：作为基础框架进行搭建
 
-swagger：没有前台页面，使用restfule访问暴露的api，用swagger可以方便的调用接口
+Swagger：没有前台页面，使用restfule访问暴露的api，用swagger可以方便的调用接口
 
-jpa：使用jpa访问数据
+JPA：使用jpa访问数据
 
-db：数据库初始化语句用的是mysql，也可以根据自己的需要换成oracle也一样，
+HikariCP：数据库连接池，号称目前最快的数据库连接池
+
+DB：数据库初始化语句用的是mysql，也可以根据自己的需要换成oracle也一样，
 在application.yml的datasource配置中设置成：
 
       driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -18,5 +20,6 @@ db：数据库初始化语句用的是mysql，也可以根据自己的需要换�
       username: ${JDBC_USER:orcauser}
       password: ${JDBC_PASSWORD:orcauser}
 
-数据库连接池：用的是HikariCP，号称最快的数据库连接池
+# Changelog
 
+- 2017.12.7 增加配置多数据源
