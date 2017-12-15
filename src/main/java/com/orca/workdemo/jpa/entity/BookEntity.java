@@ -15,6 +15,7 @@ public class BookEntity implements Serializable{
     private static final long serialVersionUID = -3365234452811266474L;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="book_id")
     private Long bookId; //书编号
 
