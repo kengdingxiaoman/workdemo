@@ -66,10 +66,9 @@ public class DemoController{
     @GetMapping("/addBook")
     public ResponseEntity<Void> addBook() {
         BookEntity bookEntity = new BookEntity();
-        bookEntity.setBookId(2L);
-        bookEntity.setBookName("西游记");
-        bookEntity.setAuthor("吴承恩");
-        bookEntity.setAvailNum(230L);
+        bookEntity.setBookName("红楼梦");
+        bookEntity.setAuthor("曹雪芹");
+        bookEntity.setAvailNum(444L);
         bookEntity.setPublishTime(new Date());
         bookEntity.setCreateTime(new Date());
         bookEntity.setUpdateTime(new Date());
